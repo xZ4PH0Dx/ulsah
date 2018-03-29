@@ -1,0 +1,3 @@
+It' a file for shared usage!
+Text here some tips for unix and linux system administration handbook!
+
