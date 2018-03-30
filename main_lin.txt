@@ -191,3 +191,10 @@ wc /etc/passwd
 tee:copy input to two places
 find / -name core |tee /dev/tty|wc-l
 #prints both the pathnames of files named core and a count
+#tee /dev/tty - output to terminal
+
+head -n
+tail -n 50  -f #waits for new lines to be added
+
+
+
