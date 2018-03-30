@@ -119,3 +119,14 @@ chattr +i testfile
 
 getfacl testfile
 setfacl 
+
+set -o [vi|emacs]
+
+grep bash /etc/passwd > /tmp/bash-users
+
+sort < /tmp/bash-users
+
+find -name core > /tmp/name_core 2> /dev/null
+
+find -name core 2> /dev/null | less
+
