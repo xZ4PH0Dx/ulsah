@@ -130,3 +130,50 @@ find -name core > /tmp/name_core 2> /dev/null
 
 find -name core 2> /dev/null | less
 
+cut -d: -f7 < /etc/passwd |sort -u
+
+mkdir foo && cd foo
+
+cd foo ||echo "No such directory"
+
+cp --preserve --recursive /etc/* /spare/backup \
+||echo "Did not make backup"
+
+mkdir foo;cd foo;touch afile
+
+echo "Saved ${rev}th version of mdadm.conf."
+
+mylang="Pennsylvania Dutch"
+echo "Ispeak ${mylang}"
+#Ispeak Pennsylvania Dutch"
+echo 'I speak ${mylang}'
+#I speak ${mylang}
+
+echo "There are `wc -l < /tc/passwd` lines in the passwd file"
+
+export EDITOR=vim
+
+commands for environment variables should be included  in /.profile or ~/.bash_profile
+
+cut:separate lines into fields
+
+-d #delimiter
+-f #specifies which fields to include in the output
+
+sort:sort lines
+-b ignore leading whitespace
+-f sort case-insensitively
+-h sort human readable
+-k specify the columns that form the sort key
+-n compare fields as integer numbers
+-t set field separator
+-u output only unique records
+-r reverse sord order
+
+example "du -sh /usr/* |sort -h
+
+uniq:print unique lines
+-c count the number of instances of each line
+-d show only duplicated lines
+-u show only nonduplicated lines
+
