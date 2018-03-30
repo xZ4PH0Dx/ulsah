@@ -1,0 +1,121 @@
+finding
+	which
+	whereis
+	locate ( updatedb )
+	dpkg -S
+	
+adding new
+	through adding cloning git branch :
+		cd /tmp
+		git clone https://...tcpdump.git	
+		cd tcpdump
+		git checkout tags/tcpdump-4.7.4 -b tcpdump-4.7.4
+		./configure
+		make
+		sudo make install
+		./configure --help
+		./configure --prefix=directory
+	
+	through shell script
+		curl -o /tmp/saltboot - sL https://bootstrap.saltstack.com
+		sudo sh /tmp/saltboot
+		
+		or below but it's unsecure
+		
+		curl -L https://badvendor.com | sudo sh
+		
+		
+protect mounted fs from executing setuid,setgid
+	mount -o nosuid
+	
+	
+sudo vipw - change shell
+
+ps aux
+ps lax
+ps laxww
+ps aux |grep httpd|grep -v grep
+
+pidof httpd
+pgrep httpd
+
+top
+numeral 1("one") to change a core
+
+vmstat
+
+sudo fuser -c /home/${USER}
+
+crontab
+accuracysec
+systemd .timer
+
+ps up "pid"
+
+fuser -cv /home/${USER}
+
+fuser - identify processes using files or sockets
+
+lsof - list open files - more complex version of fuser
+
+lsof -F
+
+/boot - file contains OS Kernel usually lives here
+/etc - critical system and configuration files
+/sbin && /bin - for important utilities
+/tmp - for temporary files
+/dev - was traditionally part of the root fs but these days it's virt fs
+/lib && /lib64 - shared library files and a few other oddments such as c preprocessor. sometimes these items was have been moved to /usr/lib
+/usr - where most standart-but-not-system-critical programs are kept
+/var - houses spool dirs,logs,accounting information and various other items that grow or change rapidly and that vary on each host
+
+man hier - contents guidelines for fs
+http://wiki.linuxfoundation.org/en/FHS
+
+
+file types : 
+regular files,directories,character device files,block device files,local domains files,named pipes(FIFOs),symbolic links
+
+
+file /...
+ls -ld (l detailed info,d info for dirs not content)
+
+rm
+rm -r,rmdir
+rm -- -f
+rm -f
+rm -{i,I}
+
+rwx directory - view files/create files/enter, walkthrough and scan\search
+
+4000 and 2000 are setuid\setgid bits. when setgid is set on a directory, newly will take on the group ownership rather than the user who created the file
+
+1000 If the sticky bit is set on a directory, the filesystem won’t allow you to delete
+or rename a file unless you are the owner of the directory, the owner of the
+file, or the superuser
+
+
+sudo find / -xdev -inum 8410366 -print
+find by inode
+
+Some other ls options that are important to know are -a to show all entries in
+a directory (even files whose names start with a dot), -t to sort files by
+modification time (or -tr to sort in reverse chronological order), -F to show
+the names of files in a way that distinguishes directories and executable files,
+-R to list recursively, and -h to show file sizes in human-readable form (e.g.,
+8K or 53M)
+
+sudo find /home/ec2-user/testset/ -type f -exec chmod a-x {} ';'
+
+sudo chown -R ec2-user ~/testdir
+sudo chgrp -R wheel ~/testdir
+
+sudo chown -R ec2-user:wheel ~/testdir
+
+umask 044 ec2-user
+lsattr testfile
+chattr +i testfile
+
+
+getfacl testfile
+setfacl 
