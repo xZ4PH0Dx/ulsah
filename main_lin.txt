@@ -176,4 +176,18 @@ uniq:print unique lines
 -c count the number of instances of each line
 -d show only duplicated lines
 -u show only nonduplicated lines
+input must be presorted
 
+cut -d: -f7 /etc/passwd |sort|uniq -c
+
+wc:count lines,words and characters
+
+wc /etc/passwd
+#32 77 2003 /etc/passwd
+#-l
+#-w
+#-c
+
+tee:copy input to two places
+find / -name core |tee /dev/tty|wc-l
+#prints both the pathnames of files named core and a count
